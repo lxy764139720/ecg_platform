@@ -8,7 +8,7 @@ def hello_world():
     return 'Hello World!'
 
 
-@app.route('/ecg/httptest')
+@app.route('/ecg/httptest', methods=['GET', 'POST'])
 def httptest():
     if request.method == 'POST':
         print('**** Receive Post Data *****')
