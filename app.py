@@ -10,6 +10,10 @@ def hello_world():
 
 @app.route('/ecg/httptest')
 def httptest():
+    if request.method == 'POST':
+        print('**** Receive Post Data *****')
+        print(request.data)
+        return 'POST SUCCESS'
     msg = request.args.get('msg') or None
     signature = request.args.get('signature') or None
     nonce = request.args.get('nonce') or None
