@@ -8,7 +8,7 @@ def hello_world():
     return 'Hello World!'
 
 
-@app.route('ecg/httptest')
+@app.route('/ecg/httptest')
 def httptest():
     msg = request.args.get('msg') or None
     signature = request.args.get('signature') or None
