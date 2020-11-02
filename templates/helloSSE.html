@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+    <title> Flask-SSE Quickstart </title>
+</head>
+<body>
+<h1>Flash-SSE Quickstart</h1>
+<script>
+    // 打开到流终点的 SSE 连接
+    var source = new EventSource("{{ url_for('sse.stream') }}")
+
+    // 可选回调, 建立连接时调用
+    source.onopen = function () {
+        console.log("开始发送");
+    };
+
+    // 可选回调, 连接失败时调用
+    //source.onerror = function () {
+    //    alert("连接错误");
+    //}
+
+    // 监听 "greeting" 事件, 调用自定义代码
+    source.addEventListener('greeting', function (event) {
+        var data = JSON.parse(event.data);
+        alert("The Server Says: " + data.message);
+    }, false);
+
+    // 监听 "error" 事件, 调用自定义代码
+    //source.addEventListener("error", function (event) {
+    //    alert("Failed to connect to event stream.")
+    //}, false);
+
+    // // 监听所有事件, 不明确指定事件类型.
+    //source.onmessage = function (event) {
+    //    console.log(event.id, event.data);
+
+    // // 如果 服务器发送 "CLOSE" 消息 ID, 关闭 SSE 连接.
+    //    if (event.id === "CLOSE") {
+    //        source.close();
+    //    }
+    //}
+
+</script>
+</body>
+</html>
