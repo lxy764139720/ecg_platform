@@ -15,30 +15,35 @@
     };
 
     // 可选回调, 连接失败时调用
-    //source.onerror = function () {
-    //    alert("连接错误");
-    //}
+    source.onerror = function () {
+        console.log("连接错误");
+    }
 
     // 监听 "greeting" 事件, 调用自定义代码
     source.addEventListener('greeting', function (event) {
         var data = JSON.parse(event.data);
-        alert("The Server Says: " + data.message);
+        alert("The server says: " + data.message);
+    }, false);
+
+    // 监听 "beat" 事件, 调用自定义代码
+    source.addEventListener('beat', function (event) {
+        var data = JSON.parse(event.data);
+        alert("The heart beat is: " + data.message);
     }, false);
 
     // 监听 "error" 事件, 调用自定义代码
-    //source.addEventListener("error", function (event) {
-    //    alert("Failed to connect to event stream.")
-    //}, false);
+    source.addEventListener("error", function (event) {
+        alert("Failed to connect to event stream.")
+    }, false);
 
-    // // 监听所有事件, 不明确指定事件类型.
-    //source.onmessage = function (event) {
-    //    console.log(event.id, event.data);
-
-    // // 如果 服务器发送 "CLOSE" 消息 ID, 关闭 SSE 连接.
-    //    if (event.id === "CLOSE") {
-    //        source.close();
-    //    }
-    //}
+    // 监听所有事件, 不明确指定事件类型.
+    source.onmessage = function (event) {
+        console.log(event.id, event.data);
+        // 如果 服务器发送 "CLOSE" 消息 ID, 关闭 SSE 连接.
+        if (event.id === "CLOSE") {
+            source.close();
+        }
+    }
 
 </script>
 </body>
