@@ -1,3 +1,4 @@
+import json
 from gevent import monkey
 from flask import Flask, request, render_template
 from flask_sse import sse
@@ -44,6 +45,26 @@ def httptest():
     if request.method == 'POST':
         print('**** Receive Post Data *****')
         print(request.data)
+
+        onenet_data = json.loads(request.data)
+        msg = onenet_data['msg']
+        msg_time = msg['at']  # timestrap
+        msg_type = msg['type']  # 1:data 2:online/offline
+        msg_value = msg['value']  # heart beat data
+        msg_devid = msg['dev_id']  # device id
+
+        if msg_type == 2:
+            # online/offline message
+            if msg['status'] == 1:
+                sse.publish({"device_on": "online"}, type="device")
+                sse.publish({"device_id": msg_devid}, type="device")
+            if msg['status'] == 0:
+                sse.publish({"device_off": "offline"}, type="device")
+        if msg_type == 1:
+            # data message
+            sse.publish({"data": msg_value}, type="data")
+            sse.publish({"time": msg_value}, type="data")
+
         return 'POST SUCCESS'
     msg = request.args.get('msg') or None
     signature = request.args.get('signature') or None
