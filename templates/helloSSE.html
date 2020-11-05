@@ -27,8 +27,16 @@
 
     // 监听 "beat" 事件, 调用自定义代码
     source.addEventListener('beat', function (event) {
+        var id = JSON.parse(event.id);
         var data = JSON.parse(event.data);
-        console.log("The heart beat is: " + data.message);
+        console.log(id + " : " + data);
+    }, false);
+
+    // 监听 "device" 事件, 调用自定义代码
+    source.addEventListener('device', function (event) {
+        var id = JSON.parse(event.id);
+        var data = JSON.parse(event.data);
+        console.log(id + " : " + data);
     }, false);
 
     // 监听 "error" 事件, 调用自定义代码

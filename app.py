@@ -62,8 +62,8 @@ def httptest():
                 sse.publish({"device_off": "offline"}, type="device")
         if msg_type == 1:
             # data message
-            sse.publish({"data": msg_value}, type="data")
-            sse.publish({"time": msg_value}, type="data")
+            sse.publish({"beat": msg_value}, type="data")
+            sse.publish({"time": msg_time}, type="data")
 
         return 'POST SUCCESS'
     msg = request.args.get('msg') or None
