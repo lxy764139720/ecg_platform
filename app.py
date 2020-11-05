@@ -50,7 +50,6 @@ def httptest():
         msg = onenet_data['msg']
         msg_time = msg['at']  # timestrap
         msg_type = msg['type']  # 1:data 2:online/offline
-        msg_value = msg['value']  # heart beat data
         msg_devid = msg['dev_id']  # device id
 
         if msg_type == 2:
@@ -62,6 +61,7 @@ def httptest():
                 sse.publish({"device_off": "offline"}, type="device")
         if msg_type == 1:
             # data message
+            msg_value = msg['value']  # heart beat data
             sse.publish({"beat": msg_value}, type="data")
             sse.publish({"time": msg_time}, type="data")
 
