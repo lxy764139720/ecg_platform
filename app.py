@@ -17,6 +17,7 @@ def hello_sse():
 @app.route('/hello')
 def publish():
     sse.publish({"message": "Hello!"}, type="greeting")
+    sse.publish({"beat": 1}, type="beat")
     return "Message Sent!"
 
 
@@ -64,6 +65,7 @@ def httptest():
             msg_value = msg['value']  # heart beat data
             sse.publish({"beat": msg_value}, type="data")
             sse.publish({"time": msg_time}, type="data")
+            print('sent')
 
         return 'POST SUCCESS'
     msg = request.args.get('msg') or None

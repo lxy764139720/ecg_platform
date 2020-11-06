@@ -1,71 +1,44 @@
-// 打开到流终点的 SSE 连接
-var source = new EventSource("{{ url_for('sse.stream') }}")
 var dom = document.getElementById("heart");
 var myChart = echarts.init(dom);
 var app = {};
+
 option = null;
-var data = [];
 
-// 可选回调, 建立连接时调用
-source.onopen = function () {
-    console.log("开始发送");
-};
+function getData() {
+    now = new Date(+now + oneDay);
 
-// 可选回调, 连接失败时调用
-source.onerror = function () {
-    console.log("连接错误");
+    $.get("/heart_info_send", function (data) {
+        value = data.d
+    });
+
+    return {
+        name: now.toString(),
+        value: [
+            [now.getFullYear(), now.getMonth() + 1, now.getDate()].join('/'),
+            Math.round(value)
+        ]
+    };
 }
 
-// 监听 "greeting" 事件, 调用自定义代码
-source.addEventListener('greeting', function (event) {
-    var data = JSON.parse(event.data);
-    console.log("The server says: " + data.message);
-}, false);
+var data = [];
+var now = +new Date(1997, 9, 3);
+var oneDay = 24 * 3600 * 1000;
+var value = 0
+for (var i = 0; i < 100; i++) {
 
-// 监听 "beat" 事件, 调用自定义代码
-source.addEventListener('beat', function (event) {
-    var id = JSON.parse(event.id);
-    var data = JSON.parse(event.data);
-    console.log(id + " : " + data);
-    if (id === "beat") {
-        data.shift();
-        data.push(data.message);
-        myChart.setOption({
-            series: [{data: data}]
-        });
-    }
-}, false);
-
-// 监听 "device" 事件, 调用自定义代码
-source.addEventListener('device', function (event) {
-    var id = JSON.parse(event.id);
-    var data = JSON.parse(event.data);
-    console.log(id + " : " + data);
-}, false);
-
-// 监听 "error" 事件, 调用自定义代码
-source.addEventListener("error", function (event) {
-    console.log("Failed to connect to event stream.")
-}, false);
-
-// 监听所有事件, 不明确指定事件类型.
-source.onmessage = function (event) {
-    console.log(event.id, event.data);
-    // 如果 服务器发送 "CLOSE" 消息 ID, 关闭 SSE 连接.
-    if (event.id === "CLOSE") {
-        source.close();
-    }
+    data.push(getData());
 }
 
 option = {
     title: {
-        text: '动态数据 + 时间坐标轴'
+        text: '心电数据'
     },
     tooltip: {
         trigger: 'axis',
         formatter: function (params) {
             params = params[0];
-            return params.name;
+            var date = new Date(params.name);
+            return date.getDate() + '/' + (date.getMonth() + 1) + '/' + date.getFullYear() + ' : ' + params.value[1];
         },
         axisPointer: {
             animation: false
@@ -92,6 +65,20 @@ option = {
     }]
 };
 
+setInterval(function () {
+
+    for (var i = 0; i < 1; i++) {
+        data.shift();
+        data.push(getData());
+    }
+
+    myChart.setOption({
+        series: [{
+            data: data
+        }]
+    });
+}, 1000);
+;
 if (option && typeof option === "object") {
     myChart.setOption(option, true);
 }

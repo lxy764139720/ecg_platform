@@ -304,7 +304,12 @@
                     var myChart = echarts.init(dom);
                     var app = {};
                     option = null;
+                    {#var time = [];#}
+                    {#var time_strap = 0;#}
                     var data = [];
+                    for (var i = 0; i < 100; i++) {
+                        data.push(Math.random() * 5);
+                    }
 
                     // 可选回调, 建立连接时调用
                     source.onopen = function () {
@@ -324,23 +329,23 @@
 
                     // 监听 "beat" 事件, 调用自定义代码
                     source.addEventListener('beat', function (event) {
-                        var id = JSON.parse(event.id);
-                        var data = JSON.parse(event.data);
-                        console.log(id + " : " + data);
-                        if (id === "beat") {
+                        var ecg_data = JSON.parse(event.data);
+                        console.log(ecg_data);
+                        if (ecg_data.beat) {
+                            console.log("ecgdata.beat");
+                            {#time.shift();#}
+                            {#time_strap = time_strap + 1;#}
+                            {#time.push(time_strap + 1);#}
                             data.shift();
-                            data.push(data.message);
-                            myChart.setOption({
-                                series: [{data: data}]
-                            });
+                            data.push(ecg_data.beat);
+                            myChart.setOption(option);
                         }
                     }, false);
 
                     // 监听 "device" 事件, 调用自定义代码
                     source.addEventListener('device', function (event) {
-                        var id = JSON.parse(event.id);
-                        var data = JSON.parse(event.data);
-                        console.log(id + " : " + data);
+                        var device_data = JSON.parse(event.data);
+                        console.log(device_data);
                     }, false);
 
                     // 监听 "error" 事件, 调用自定义代码
@@ -359,7 +364,7 @@
 
                     option = {
                         title: {
-                            text: '动态数据 + 时间坐标轴'
+                            text: '心电图数据'
                         },
                         tooltip: {
                             trigger: 'axis',
@@ -372,10 +377,11 @@
                             }
                         },
                         xAxis: {
-                            type: 'time',
+                            type: 'category',
                             splitLine: {
                                 show: true
-                            }
+                            },
+                            {#data: time#}
                         },
                         yAxis: {
                             type: 'value',

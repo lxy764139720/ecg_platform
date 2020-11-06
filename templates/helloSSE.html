@@ -27,9 +27,9 @@
 
     // 监听 "beat" 事件, 调用自定义代码
     source.addEventListener('beat', function (event) {
-        var id = JSON.parse(event.id);
+        {#var id = JSON.parse(event.id);#}
         var data = JSON.parse(event.data);
-        console.log(id + " : " + data);
+        console.log(data);
     }, false);
 
     // 监听 "device" 事件, 调用自定义代码
