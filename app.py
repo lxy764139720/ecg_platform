@@ -63,7 +63,7 @@ def httptest():
         if msg_type == 1:
             # data message
             msg_value = msg['value']  # heart beat data
-            sse.publish({"beat": msg_value}, type="data")
+            sse.publish({"beat": msg_value}, type="beat")
             sse.publish({"time": msg_time}, type="data")
             print('sent')
 
