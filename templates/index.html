@@ -306,6 +306,7 @@
                     option = null;
                     {#var time = [];#}
                     {#var time_strap = 0;#}
+                    var ecg_data = Array(500).fill(0);
                     var data = [-0.152,
                         -0.153,
                         -0.153,
@@ -994,9 +995,28 @@
                             type: 'line',
                             showSymbol: false,
                             hoverAnimation: true,
-                            data: data
+                            data: ecg_data
                         }]
                     };
+                    setTimeout(function () {
+                        var i = 0;
+                        setInterval(function () {
+                            i = i % 500;
+                            ecg_data.shift();
+                            ecg_data.push(data[i]);
+                            i = i + 1;
+                            ecg_data.shift();
+                            ecg_data.push(data[i]);
+                            i = i + 1;
+                            console.log(i);
+
+                            myChart.setOption({
+                                series: [{
+                                    data: ecg_data
+                                }]
+                            });
+                        }, 1);
+                    }, 5000);
 
                     if (option && typeof option === "object") {
                         myChart.setOption(option, true);
