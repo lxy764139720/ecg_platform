@@ -79,7 +79,7 @@
                         class="fab fa-google"></i></a><a class="badge"><i class="fab fa-twitter"></i></a><a
                         class="badge"><i class="fab fa-github"></i></a></p>
                 <p>或用邮箱登录</p>
-                <form id="login_form" method="post" action="/loginv">
+                <div id="login_form">
                     <div class="form-group">
                         <input name="UserName" class="form-control" type="text" placeholder="用户名" required="required"/>
                     </div>
@@ -88,8 +88,11 @@
                                required="required"/>
                     </div>
                     <p><a href="#">忘记密码?</a></p>
-                    <button class="btn btn-lg">登录</button>
-                </form>
+                    <a href="{{ url_for('index') }}" class="nav-link tpl-left-nav-link-list">
+                        <button class="btn btn-lg">登录</button>
+                    </a>
+
+                </div>
             </div>
             <button class="btn btn-back js-btn" data-target="welcome"><i class="fas fa-angle-left"></i></button>
         </div>
