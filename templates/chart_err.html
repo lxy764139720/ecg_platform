@@ -1,0 +1,844 @@
+<!doctype html>
+<html lang="zh-cmn-Hans">
+
+<head>
+    <link href="../static/assets/img/heart.ico" rel="shortcut icon" type="image/x-icon"/>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Amaze UI Admin index Examples</title>
+    <meta name="keywords" content="index">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <link rel="icon" type="image/png" href="../static/assets/i/favicon.css">
+    <link rel="apple-touch-icon-precomposed" href="../static/assets/i/app-icon72x72@2x.css">
+    <meta name="apple-mobile-web-app-title" content="Amaze UI">
+    <link rel="stylesheet" href="../static/assets/css/amazeui.min.css">
+    <link rel="stylesheet" href="../static/assets/css/admin.css">
+    <link rel="stylesheet" href="../static/assets/css/app.css">
+    <script src="../static/assets/js/echarts.min.js"></script>
+</head>
+
+<body data-type="chart">
+
+
+<header class="am-topbar am-topbar-inverse admin-header">
+    <div class="am-topbar-brand">
+        <a href="javascript:" class="tpl-logo">
+            <img src="../static/assets/img/heart_logo.png" alt="">
+        </a>
+    </div>
+    <div class="am-icon-list tpl-header-nav-hover-ico am-fl am-margin-right">
+
+    </div>
+
+    <button class="am-topbar-btn am-topbar-toggle am-btn am-btn-sm am-btn-success am-show-sm-only"
+            data-am-collapse="{target: '#topbar-collapse'}"><span class="am-sr-only"></span> <span
+            class="am-icon-bars"></span></button>
+
+    <div class="am-collapse am-topbar-collapse" id="topbar-collapse">
+
+        <ul class="am-nav am-nav-pills am-topbar-nav am-topbar-right admin-header-list tpl-header-list">
+            <li class="am-dropdown" data-am-dropdown="" data-am-dropdown-toggle="">
+                <a class="am-dropdown-toggle tpl-header-list-link" href="javascript:">
+                    <span class="am-icon-bell-o"></span> 提醒 <span class="am-badge tpl-badge-success am-round">5</span>
+                </a>
+                <ul class="am-dropdown-content tpl-dropdown-content">
+                    <li class="tpl-dropdown-content-external">
+                        <h3>你有 <span class="tpl-color-success">5</span> 条提醒</h3><a href="">全部</a></li>
+                    <li class="tpl-dropdown-list-bdbc"><a href="" class="tpl-dropdown-list-fl"><span
+                            class="am-icon-btn am-icon-plus tpl-dropdown-ico-btn-size tpl-badge-success"></span>
+                        【警报】心率超出正常值</a>
+                        <span class="tpl-dropdown-list-fr">3小时前</span>
+                    </li>
+                    <li class="tpl-dropdown-list-bdbc"><a href="" class="tpl-dropdown-list-fl"><span
+                            class="am-icon-btn am-icon-check tpl-dropdown-ico-btn-size tpl-badge-danger"></span> 获取健康咨询</a>
+                        <span class="tpl-dropdown-list-fr">15分钟前</span>
+                    </li>
+                    <li class="tpl-dropdown-list-bdbc"><a href="" class="tpl-dropdown-list-fl"><span
+                            class="am-icon-btn am-icon-bell-o tpl-dropdown-ico-btn-size tpl-badge-warning"></span> 均衡饮食</a>
+                        <span class="tpl-dropdown-list-fr">2天前</span>
+                    </li>
+                </ul>
+            </li>
+            <li class="am-dropdown" data-am-dropdown="" data-am-dropdown-toggle="">
+                <a class="am-dropdown-toggle tpl-header-list-link" href="javascript:">
+                    <span class="am-icon-comment-o"></span> 消息 <span class="am-badge tpl-badge-danger am-round">9</span>
+                </a>
+                <ul class="am-dropdown-content tpl-dropdown-content">
+                    <li class="tpl-dropdown-content-external">
+                        <h3>你有 <span class="tpl-color-danger">9</span> 条新消息</h3><a href="">全部</a></li>
+                    <li>
+                        <a href="" class="tpl-dropdown-content-message">
+                                <span class="tpl-dropdown-content-photo">
+                      <img src="../static/assets/img/user02.png" alt=""> </span>
+                            <span class="tpl-dropdown-content-subject">
+                      <span class="tpl-dropdown-content-from"> 张医生 </span>
+                                <span class="tpl-dropdown-content-time">10分钟前 </span>
+                                </span>
+                            <span class="tpl-dropdown-content-font"> 保养，是指遵循生命法则，通过适度运动，加之外在护理等手段，让身体机能及外在皮肤得以休养生息，恢复应有机能，这是养生的第一层面 </span>
+                        </a>
+                        <a href="" class="tpl-dropdown-content-message">
+                                <span class="tpl-dropdown-content-photo">
+                      <img src="../static/assets/img/user03.png" alt=""> </span>
+                            <span class="tpl-dropdown-content-subject">
+                      <span class="tpl-dropdown-content-from"> Steam </span>
+                                <span class="tpl-dropdown-content-time">18分钟前</span>
+                                </span>
+                            <span class="tpl-dropdown-content-font"> 养生学是一门涉及诸多学科的综合科学，它包括中华中医学、康复学、营养学、美学、心理学、国学、物理学、化学、艺术、烹饪、运动学、道学等等 </span>
+                        </a>
+                    </li>
+
+                </ul>
+            </li>
+            <li class="am-dropdown" data-am-dropdown="" data-am-dropdown-toggle="">
+                <a class="am-dropdown-toggle tpl-header-list-link" href="javascript:">
+                    <span class="am-icon-calendar"></span> 进度 <span class="am-badge tpl-badge-primary am-round">4</span>
+                </a>
+                <ul class="am-dropdown-content tpl-dropdown-content">
+                    <li class="tpl-dropdown-content-external">
+                        <h3>你有 <span class="tpl-color-primary">4</span> 个任务进度</h3><a href="">全部</a></li>
+                    <li>
+                        <a href="javascript:" class="tpl-dropdown-content-progress">
+                                <span class="task">
+                        <span class="desc">晨练2小时 </span>
+                                <span class="percent">45%</span>
+                                </span>
+                            <span class="progress">
+                        <div class="am-progress tpl-progress am-progress-striped"><div
+                                class="am-progress-bar am-progress-bar-success" style="width:45%"></div></div>
+                    </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:" class="tpl-dropdown-content-progress">
+                                <span class="task">
+                        <span class="desc">新闻内容页 </span>
+                                <span class="percent">30%</span>
+                                </span>
+                            <span class="progress">
+                       <div class="am-progress tpl-progress am-progress-striped"><div
+                               class="am-progress-bar am-progress-bar-secondary" style="width:30%"></div></div>
+                    </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:" class="tpl-dropdown-content-progress">
+                                <span class="task">
+                        <span class="desc">听音乐 </span>
+                                <span class="percent">60%</span>
+                                </span>
+                            <span class="progress">
+                        <div class="am-progress tpl-progress am-progress-striped"><div
+                                class="am-progress-bar am-progress-bar-warning" style="width:60%"></div></div>
+                    </span>
+                        </a>
+                    </li>
+
+                </ul>
+            </li>
+
+            <li class="am-dropdown" data-am-dropdown="" data-am-dropdown-toggle="">
+                <a class="am-dropdown-toggle tpl-header-list-link" href="javascript:">
+                    <span class="tpl-header-list-user-nick">小张</span><span class="tpl-header-list-user-ico"> <img
+                        src="../static/assets/img/user01.png"></span>
+                </a>
+                <ul class="am-dropdown-content">
+                    <li><a href=""><span class="am-icon-bell-o"></span> 资料</a></li>
+                    <li><a href=""><span class="am-icon-cog"></span> 设置</a></li>
+                    <li><a href=""><span class="am-icon-power-off"></span> 退出</a></li>
+                </ul>
+            </li>
+            <li><a href="" class="tpl-header-list-link"><span
+                    class="am-icon-sign-out tpl-header-list-ico-out-size"></span></a></li>
+        </ul>
+    </div>
+</header>
+
+<div class="tpl-page-container tpl-page-header-fixed">
+
+    <div class="tpl-left-nav tpl-left-nav-hover">
+        <div class="tpl-left-nav-title">
+            列表
+        </div>
+        <div class="tpl-left-nav-list">
+            <ul class="tpl-left-nav-menu">
+                <li class="tpl-left-nav-item">
+                    <a href="{{ url_for('index') }}" class="nav-link">
+                        <i class="am-icon-home"></i>
+                        <span>首页</span>
+                    </a>
+                </li>
+                <li class="tpl-left-nav-item">
+                    <a href="{{ url_for('chart') }}" class="nav-link tpl-left-nav-link-list active">
+                        <i class="am-icon-bar-chart"></i>
+                        <span>检测结果</span>
+                        <i class="tpl-left-nav-content tpl-badge-danger">
+                            12
+                        </i>
+                    </a>
+                </li>
+
+
+                <li class="tpl-left-nav-item">
+                    <a href="{{ url_for('login') }}" class="nav-link tpl-left-nav-link-list">
+                        <i class="am-icon-key"></i>
+                        <span>登录</span>
+
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="tpl-content-wrapper">
+        <div class="tpl-content-page-title">
+            心电数据检测结果
+        </div>
+        <ol class="am-breadcrumb">
+            <li><a href="" class="am-icon-home">首页</a></li>
+            <li><a href="">表单</a></li>
+            <li class="am-active">心电数据检测结果</li>
+        </ol>
+        <div class="tpl-portlet-components">
+            <div class="portlet-title">
+                <div class="caption font-green bold">
+                    <span class="am-icon-code"></span> 折线图
+                </div>
+                <div class="tpl-portlet-input tpl-fz-ml">
+                    <div class="portlet-input input-small input-inline">
+                        <div class="input-icon right"></div>
+                    </div>
+                </div>
+                <div class="tpl-block">
+                    <div class="am-g">
+                        <div class="am-u-sm-12 am-u-md-6">
+                            <div class="am-btn-toolbar">
+                                <div class="am-btn-group am-btn-group-xs">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="am-u-sm-12 am-u-md-3">
+                            <div class="am-form-group">
+                            </div>
+                        </div>
+
+                        <div class="am-u-sm-12 am-u-md-3">
+                            <div class="am-input-group am-input-group-sm">
+                                <span class="am-input-group-btn">
+        						</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--此部分数据请在 js文件夹下中的 app.js 中的 “百度图表A” 处修改数据 插件使用的是 百度echarts-->
+                    <div class="tpl-echarts tpl-chart-mb" id="heart">
+                        <script>// 打开到流终点的 SSE 连接
+                        var source = new EventSource("{{ url_for('sse.stream') }}")
+                        var dom = document.getElementById("heart");
+                        var myChart = echarts.init(dom);
+                        var app = {};
+                        option = null;
+                        {#var time = [];#}
+                        {#var time_strap = 0;#}
+                        var data = [-1.211,
+                            -1.200,
+                            -1.182,
+                            -1.165,
+                            -1.153,
+                            -1.161,
+                            -1.166,
+                            -1.155,
+                            -1.149,
+                            -1.146,
+                            -1.138,
+                            -1.123,
+                            -1.098,
+                            -1.057,
+                            -1.019,
+                            -0.998,
+                            -0.985,
+                            -0.986,
+                            -0.989,
+                            -0.984,
+                            -0.980,
+                            -0.976,
+                            -0.972,
+                            -0.970,
+                            -0.964,
+                            -0.954,
+                            -0.949,
+                            -0.954,
+                            -0.966,
+                            -0.990,
+                            -1.015,
+                            -1.031,
+                            -1.044,
+                            -1.051,
+                            -1.056,
+                            -1.063,
+                            -1.066,
+                            -1.063,
+                            -1.058,
+                            -1.052,
+                            -1.043,
+                            -1.034,
+                            -1.024,
+                            -1.015,
+                            -1.007,
+                            -1.003,
+                            -0.999,
+                            -0.996,
+                            -0.994,
+                            -0.993,
+                            -0.994,
+                            -0.996,
+                            -0.999,
+                            -1.002,
+                            -1.001,
+                            -0.991,
+                            -0.971,
+                            -0.940,
+                            -0.912,
+                            -0.901,
+                            -0.902,
+                            -0.920,
+                            -0.935,
+                            -0.929,
+                            -0.913,
+                            -0.882,
+                            -0.853,
+                            -0.844,
+                            -0.842,
+                            -0.851,
+                            -0.859,
+                            -0.853,
+                            -0.842,
+                            -0.824,
+                            -0.805,
+                            -0.792,
+                            -0.779,
+                            -0.765,
+                            -0.752,
+                            -0.738,
+                            -0.726,
+                            -0.716,
+                            -0.706,
+                            -0.693,
+                            -0.679,
+                            -0.662,
+                            -0.645,
+                            -0.630,
+                            -0.616,
+                            -0.602,
+                            -0.590,
+                            -0.579,
+                            -0.570,
+                            -0.564,
+                            -0.561,
+                            -0.560,
+                            -0.563,
+                            -0.570,
+                            -0.573,
+                            -0.563,
+                            -0.543,
+                            -0.508,
+                            -0.479,
+                            -0.475,
+                            -0.486,
+                            -0.522,
+                            -0.556,
+                            -0.566,
+                            -0.566,
+                            -0.550,
+                            -0.535,
+                            -0.538,
+                            -0.546,
+                            -0.559,
+                            -0.572,
+                            -0.575,
+                            -0.576,
+                            -0.575,
+                            -0.575,
+                            -0.582,
+                            -0.594,
+                            -0.610,
+                            -0.624,
+                            -0.628,
+                            -0.627,
+                            -0.617,
+                            -0.608,
+                            -0.608,
+                            -0.612,
+                            -0.621,
+                            -0.631,
+                            -0.633,
+                            -0.634,
+                            -0.632,
+                            -0.631,
+                            -0.635,
+                            -0.641,
+                            -0.649,
+                            -0.662,
+                            -0.680,
+                            -0.706,
+                            -0.741,
+                            -0.773,
+                            -0.793,
+                            -0.804,
+                            -0.802,
+                            -0.799,
+                            -0.809,
+                            -0.821,
+                            -0.838,
+                            -0.853,
+                            -0.856,
+                            -0.853,
+                            -0.843,
+                            -0.833,
+                            -0.829,
+                            -0.826,
+                            -0.827,
+                            -0.830,
+                            -0.832,
+                            -0.837,
+                            -0.847,
+                            -0.854,
+                            -0.854,
+                            -0.847,
+                            -0.830,
+                            -0.815,
+                            -0.813,
+                            -0.817,
+                            -0.832,
+                            -0.849,
+                            -0.861,
+                            -0.874,
+                            -0.889,
+                            -0.899,
+                            -0.903,
+                            -0.899,
+                            -0.880,
+                            -0.863,
+                            -0.857,
+                            -0.857,
+                            -0.867,
+                            -0.878,
+                            -0.880,
+                            -0.883,
+                            -0.885,
+                            -0.886,
+                            -0.888,
+                            -0.887,
+                            -0.882,
+                            -0.876,
+                            -0.867,
+                            -0.856,
+                            -0.843,
+                            -0.837,
+                            -0.849,
+                            -0.877,
+                            -0.928,
+                            -0.959,
+                            -0.936,
+                            -0.870,
+                            -0.744,
+                            -0.610,
+                            -0.513,
+                            -0.421,
+                            -0.347,
+                            -0.280,
+                            -0.203,
+                            -0.144,
+                            -0.111,
+                            -0.077,
+                            -0.030,
+                            0.025,
+                            0.099,
+                            0.158,
+                            0.179,
+                            0.177,
+                            0.143,
+                            0.098,
+                            0.060,
+                            0.015,
+                            -0.036,
+                            -0.092,
+                            -0.159,
+                            -0.226,
+                            -0.289,
+                            -0.364,
+                            -0.455,
+                            -0.561,
+                            -0.686,
+                            -0.817,
+                            -0.945,
+                            -1.076,
+                            -1.209,
+                            -1.330,
+                            -1.430,
+                            -1.503,
+                            -1.540,
+                            -1.559,
+                            -1.571,
+                            -1.563,
+                            -1.535,
+                            -1.503,
+                            -1.472,
+                            -1.448,
+                            -1.443,
+                            -1.435,
+                            -1.412,
+                            -1.389,
+                            -1.364,
+                            -1.338,
+                            -1.315,
+                            -1.291,
+                            -1.261,
+                            -1.234,
+                            -1.209,
+                            -1.186,
+                            -1.165,
+                            -1.147,
+                            -1.131,
+                            -1.118,
+                            -1.110,
+                            -1.104,
+                            -1.101,
+                            -1.102,
+                            -1.105,
+                            -1.110,
+                            -1.114,
+                            -1.117,
+                            -1.118,
+                            -1.118,
+                            -1.117,
+                            -1.113,
+                            -1.104,
+                            -1.096,
+                            -1.091,
+                            -1.089,
+                            -1.090,
+                            -1.091,
+                            -1.091,
+                            -1.091,
+                            -1.093,
+                            -1.094,
+                            -1.095,
+                            -1.095,
+                            -1.094,
+                            -1.092,
+                            -1.091,
+                            -1.090,
+                            -1.089,
+                            -1.088,
+                            -1.085,
+                            -1.081,
+                            -1.077,
+                            -1.071,
+                            -1.064,
+                            -1.055,
+                            -1.045,
+                            -1.034,
+                            -1.024,
+                            -1.014,
+                            -1.005,
+                            -0.995,
+                            -0.985,
+                            -0.976,
+                            -0.967,
+                            -0.958,
+                            -0.948,
+                            -0.938,
+                            -0.926,
+                            -0.914,
+                            -0.903,
+                            -0.891,
+                            -0.879,
+                            -0.867,
+                            -0.855,
+                            -0.842,
+                            -0.831,
+                            -0.819,
+                            -0.806,
+                            -0.794,
+                            -0.782,
+                            -0.770,
+                            -0.759,
+                            -0.748,
+                            -0.737,
+                            -0.727,
+                            -0.718,
+                            -0.709,
+                            -0.701,
+                            -0.693,
+                            -0.685,
+                            -0.677,
+                            -0.669,
+                            -0.661,
+                            -0.653,
+                            -0.645,
+                            -0.638,
+                            -0.631,
+                            -0.623,
+                            -0.617,
+                            -0.610,
+                            -0.604,
+                            -0.598,
+                            -0.592,
+                            -0.586,
+                            -0.580,
+                            -0.575,
+                            -0.571,
+                            -0.568,
+                            -0.565,
+                            -0.563,
+                            -0.562,
+                            -0.563,
+                            -0.564,
+                            -0.566,
+                            -0.569,
+                            -0.573,
+                            -0.576,
+                            -0.576,
+                            -0.573,
+                            -0.567,
+                            -0.560,
+                            -0.558,
+                            -0.557,
+                            -0.561,
+                            -0.564,
+                            -0.566,
+                            -0.568,
+                            -0.570,
+                            -0.573,
+                            -0.576,
+                            -0.579,
+                            -0.581,
+                            -0.582,
+                            -0.584,
+                            -0.585,
+                            -0.585,
+                            -0.588,
+                            -0.594,
+                            -0.604,
+                            -0.619,
+                            -0.638,
+                            -0.660,
+                            -0.687,
+                            -0.719,
+                            -0.751,
+                            -0.779,
+                            -0.803,
+                            -0.820,
+                            -0.834,
+                            -0.847,
+                            -0.855,
+                            -0.856,
+                            -0.856,
+                            -0.857,
+                            -0.860,
+                            -0.866,
+                            -0.872,
+                            -0.873,
+                            -0.873,
+                            -0.873,
+                            -0.872,
+                            -0.870,
+                            -0.868,
+                            -0.863,
+                            -0.859,
+                            -0.855,
+                            -0.852,
+                            -0.850,
+                            -0.848,
+                            -0.845,
+                            -0.841,
+                            -0.837,
+                            -0.832,
+                            -0.828,
+                            -0.825,
+                            -0.821,
+                            -0.817,
+                            -0.814,
+                            -0.812,
+                            -0.810,
+                            -0.808,
+                            -0.807,
+                            -0.807,
+                            -0.807,
+                            -0.808,
+                            -0.807,
+                            -0.807,
+                            -0.806,
+                            -0.804,
+                            -0.802,
+                            -0.799,
+                            -0.796,
+                            -0.795,
+                            -0.799,
+                            -0.808,
+                            -0.823,
+                            -0.825,
+                            -0.797,
+                            -0.743,
+                            -0.652,
+                            -0.560,
+                            -0.492,
+                            -0.432,
+                            -0.390,
+                            -0.346,
+                            -0.280,
+                            -0.212,
+                            -0.140,
+                            -0.071,
+                            -0.016,
+                            0.032,
+                            0.072,
+                            0.101,
+                            0.119,
+                            0.121,
+                            0.105,
+                            0.080,
+                            0.050,
+                            0.014,
+                            -0.027,
+                            -0.074,
+                            -0.129,
+                            -0.187,
+                            -0.247,
+                            -0.317,
+                            -0.405,
+                            -0.507,
+                            -0.629,
+                            -0.752,
+                            -0.864,
+                            -0.972,
+                            -1.068,
+                            -1.149,
+                            -1.212,
+                            -1.245,
+
+                        ];
+                        // for (var i = 0; i < 100; i++) {
+                        //     data.push(Math.random() * 5);
+                        // }
+
+                        // 可选回调, 建立连接时调用
+                        source.onopen = function () {
+                            console.log("开始发送");
+                        };
+
+                        // 可选回调, 连接失败时调用
+                        source.onerror = function () {
+                            console.log("连接错误");
+                            source.close();
+                        }
+
+                        // 监听 "greeting" 事件, 调用自定义代码
+                        source.addEventListener('greeting', function (event) {
+                            var data = JSON.parse(event.data);
+                            console.log("The server says: " + data.message);
+                        }, false);
+
+                        // 监听 "beat" 事件, 调用自定义代码
+                        source.addEventListener('beat', function (event) {
+                            var ecg_data = JSON.parse(event.data);
+                            console.log(ecg_data);
+                            if (ecg_data.beat) {
+                                console.log("ecgdata.beat");
+                                {#time.shift();#}
+                                {#time_strap = time_strap + 1;#}
+                                {#time.push(time_strap + 1);#}
+                                data.shift();
+                                data.push(ecg_data.beat);
+                                myChart.setOption(option);
+                            }
+                        }, false);
+
+                        // 监听 "device" 事件, 调用自定义代码
+                        source.addEventListener('device', function (event) {
+                            var device_data = JSON.parse(event.data);
+                            console.log(device_data);
+                        }, false);
+
+                        // 监听 "error" 事件, 调用自定义代码
+                        source.addEventListener("error", function (event) {
+                            console.log("Failed to connect to event stream.")
+                        }, false);
+
+                        // 监听所有事件, 不明确指定事件类型.
+                        source.onmessage = function (event) {
+                            console.log(event.id, event.data);
+                            // 如果 服务器发送 "CLOSE" 消息 ID, 关闭 SSE 连接.
+                            if (event.id === "CLOSE") {
+                                source.close();
+                            }
+                        }
+
+                        option = {
+                            title: {
+                                text: '心电图数据'
+                            },
+                            tooltip: {
+                                trigger: 'axis',
+                                formatter: function (params) {
+                                    params = params[0];
+                                    return params.name;
+                                },
+                                axisPointer: {
+                                    animation: false
+                                }
+                            },
+                            xAxis: {
+                                type: 'category',
+                                splitLine: {
+                                    show: true
+                                },
+                                {#data: time#}
+                            },
+                            yAxis: {
+                                type: 'value',
+                                splitLine: {
+                                    show: true
+                                }
+                            },
+                            series: [{
+                                name: '模拟数据',
+                                type: 'line',
+                                showSymbol: false,
+                                hoverAnimation: true,
+                                data: data
+                            }]
+                        };
+
+                        setTimeout(function () {
+                            alert("心电检测异常：左束支传导阻滞！");
+                        }, 2000);
+                        if (option && typeof option === "object") {
+                            myChart.setOption(option, true);
+                        }</script>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<script type="text/javascript" src="../static/assets/js/echarts-gl.min.js"></script>
+<script type="text/javascript" src="../static/assets/js/ecStat.min.js"></script>
+<script type="text/javascript" src="../static/assets/js/dataTool.min.js"></script>
+<script type="text/javascript" src="../static/assets/js/china.js"></script>
+<script type="text/javascript" src="../static/assets/js/world.js"></script>
+<script type="text/javascript" src="../static/assets/js/bmap.min.js"></script>
+<script type="text/javascript" src="../static/assets/js/jquery.min.js"></script>
+{#    <script type="text/javascript" src="../static/assets/js/heart_info_view.js"></script>#}
+<script src="../static/assets/js/jquery-2.1.1.js"></script>
+<script src="../static/assets/js/amazeui.min.js"></script>
+<script src="../static/assets/js/app.js"></script>
+
+</body>
+</html>

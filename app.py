@@ -41,6 +41,11 @@ def chart():
     return render_template('chart.html')
 
 
+@app.route('/ecg/chart_err')
+def chart_err():
+    return render_template('chart_err.html')
+
+
 @app.route('/ecg/httptest', methods=['GET', 'POST'])
 def httptest():
     if request.method == 'POST':
