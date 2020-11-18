@@ -309,7 +309,7 @@
                     option = null;
                     {#var time = [];#}
                     {#var time_strap = 0;#}
-                    var ecg_data = Array(500).fill(0);
+                    var ecg_data = Array(1146).fill(0);
                     var data = [-0.371,
                         -0.387,
                         -0.406,
@@ -1558,7 +1558,7 @@
                     setTimeout(function () {
                         var i = 0;
                         setInterval(function () {
-                            i = i % 500;
+                            i = i % 1146;
                             ecg_data.shift();
                             ecg_data.push(data[i]);
                             i = i + 1;
