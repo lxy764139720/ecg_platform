@@ -1562,9 +1562,9 @@
                             ecg_data.shift();
                             ecg_data.push(data[i]);
                             i = i + 1;
-                            {#ecg_data.shift();#}
-                            {#ecg_data.push(data[i]);#}
-                            {#i = i + 1;#}
+                            ecg_data.shift();
+                            ecg_data.push(data[i]);
+                            i = i + 1;
                             console.log(i);
 
                             myChart.setOption({
