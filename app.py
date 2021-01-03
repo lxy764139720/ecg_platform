@@ -1,12 +1,12 @@
 import json
-# from gevent import monkey
-from flask import Flask, request, render_template
+from flask import Flask, request, render_template, jsonify
 from flask_sse import sse
+from knowledge_graph.chatbot_graph import *
 
-# monkey.patch_all()
 app = Flask(__name__)  # 创建 Flask 应用
 app.config["REDIS_URL"] = "redis://localhost"
 app.register_blueprint(sse, url_prefix="/stream")
+handler = ChatBotGraph()
 
 
 @app.route('/')
@@ -46,6 +46,18 @@ def chart_err():
     return render_template('chart_err.html')
 
 
+@app.route('/ecg/chat')
+def chat():
+    return render_template('chat.html')
+
+
+@app.route('/ecg/api/answer', methods=['GET'])
+def get_answer():
+    question = request.args.get('question', '')
+    answer = handler.chat_main(question)
+    return jsonify({'msg': answer})
+
+
 @app.route('/ecg/httptest', methods=['GET', 'POST'])
 def httptest():
     if request.method == 'POST':
@@ -82,5 +94,6 @@ def httptest():
 
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', debug=True)
+    # app.run(host='0.0.0.0', debug=True)
+    app.run(host='127.0.0.1', debug=True)
     # app.run(debug=True)
