@@ -24,10 +24,10 @@ class ChatBotGraph:
             return '\n'.join(final_answers)
 
 
-# if __name__ == '__main__':
-#     handler = ChatBotGraph()
-#     print('您好，我是心卫士医药智能助理，希望可以帮到您。本问答系统仅供参考，请谨遵医嘱。祝您身体棒棒！')
-#     while 1:
-#         question = input('用户:')
-#         answer = handler.chat_main(question)
-#         print('心卫士:', answer)
+if __name__ == '__main__':
+    handler = ChatBotGraph()
+    print('您好，我是心卫士医药智能助理，希望可以帮到您。本问答系统仅供参考，请谨遵医嘱。祝您身体棒棒！')
+    while 1:
+        question = input('用户:')
+        answer = handler.chat_main(question)
+        print('心卫士:', answer)
