@@ -6,7 +6,7 @@ from knowledge_graph.chatbot_graph import *
 app = Flask(__name__)  # 创建 Flask 应用
 app.config["REDIS_URL"] = "redis://localhost"
 app.register_blueprint(sse, url_prefix="/stream")
-handler = ChatBotGraph()
+# handler = ChatBotGraph()
 
 
 @app.route('/')
