@@ -1,6 +1,6 @@
-from .question_classifier import *
-from .question_parser import *
-from .answer_search import *
+from question_classifier import *
+from question_parser import *
+from answer_search import *
 
 '''问答类'''
 
